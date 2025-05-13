@@ -2,18 +2,13 @@ from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, MessageHandler, filters
 import os
 from dotenv import load_dotenv
+# from mysql import execute_query
+from telegram_bot.telegram_info import start,handle_message
 
 load_dotenv()
 telegram_token = os.getenv("TELEGRAM_TOKEN")
 
-# /start 명령어 처리 함수
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(f"안녕하세요, {update.effective_user.first_name}님! 👋")
 
-# 일반 메시지 처리 함수
-async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    text = update.message.text
-    print(text)
 
 # 토큰을 봇에 연결
 if __name__ == '__main__':
